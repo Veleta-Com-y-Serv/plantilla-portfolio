@@ -6,7 +6,7 @@ sectores: [diseno, arquitectura, foto]
 secciones: [hero, proyectos, sobre-nosotros, servicios, contacto]
 estilo: minimal
 plan_minimo: presencia
-version: 1.1.0
+version: 1.2.0
 base: astrowind
 demo_url: https://demo-plantilla-portfolio.noexpertise.com
 activa: true
