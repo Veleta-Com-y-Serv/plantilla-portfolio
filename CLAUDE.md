@@ -40,3 +40,5 @@ Antes de dar una orden por buena: `npm run build` sin errores.
 - `proyectos.proyectos[]`: {titulo, texto, imagen, categoria, anio}.
 - `sobre-nosotros.declaracion`: frase grande; `sobre-nosotros.personas` [{nombre, cargo}] como lista de texto.
 - `boton_cabecera` vacío a propósito (estilo minimal).
+
+Fotos de partida en public/fotos/ (generadas con IA, sin derechos de terceros); los SVG de public/placeholders/ siguen de respaldo.

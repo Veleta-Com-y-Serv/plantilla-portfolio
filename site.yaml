@@ -37,7 +37,7 @@ secciones:
     antetitulo: Arquitectura · Interiorismo
     titulo: Espacios tranquilos para vivir mejor.
     texto: "Proyectamos viviendas, locales y rehabilitaciones con luz natural, materiales honestos y presupuestos realistas."
-    imagen: /placeholders/hero.svg
+    imagen: /fotos/hero.jpg
     cta: { texto: Ver proyectos, url: "/#proyectos" }
 
   proyectos:
@@ -45,12 +45,12 @@ secciones:
     antetitulo: Proyectos
     titulo: Trabajo seleccionado
     proyectos:
-      - { titulo: Casa en Valdespartera, texto: "Vivienda unifamiliar de 180 m² con patio central y fachada de ladrillo visto.", imagen: /placeholders/proyecto-1.svg, categoria: Vivienda, anio: "2025" }
-      - { titulo: Rehabilitación en el Tubo, texto: "Piso de 1920 recuperado: suelos hidráulicos, vigas de madera y cocina abierta.", imagen: /placeholders/proyecto-2.svg, categoria: Rehabilitación, anio: "2024" }
-      - { titulo: Librería Albada, texto: "Local de 90 m² con estanterías de abedul y lectura junto al escaparate.", imagen: /placeholders/proyecto-3.svg, categoria: Comercial, anio: "2024" }
-      - { titulo: Casa de pueblo en Uncastillo, texto: "Piedra, cal y una escalera nueva de acero que ordena tres plantas.", imagen: /placeholders/proyecto-4.svg, categoria: Rehabilitación, anio: "2023" }
-      - { titulo: Oficinas Ebro Digital, texto: "Planta diáfana para 40 personas con salas acústicas de madera.", imagen: /placeholders/proyecto-5.svg, categoria: Oficinas, anio: "2023" }
-      - { titulo: Ático en Plaza San Felipe, texto: "Terraza habitable y luz cenital en un ático del casco histórico.", imagen: /placeholders/proyecto-6.svg, categoria: Interiorismo, anio: "2022" }
+      - { titulo: Casa en Valdespartera, texto: "Vivienda unifamiliar de 180 m² con patio central y fachada de ladrillo visto.", imagen: /fotos/proyecto-1.jpg, categoria: Vivienda, anio: "2025" }
+      - { titulo: Rehabilitación en el Tubo, texto: "Piso de 1920 recuperado: suelos hidráulicos, vigas de madera y cocina abierta.", imagen: /fotos/proyecto-2.jpg, categoria: Rehabilitación, anio: "2024" }
+      - { titulo: Librería Albada, texto: "Local de 90 m² con estanterías de abedul y lectura junto al escaparate.", imagen: /fotos/proyecto-3.jpg, categoria: Comercial, anio: "2024" }
+      - { titulo: Casa de pueblo en Uncastillo, texto: "Piedra, cal y una escalera nueva de acero que ordena tres plantas.", imagen: /fotos/proyecto-4.jpg, categoria: Rehabilitación, anio: "2023" }
+      - { titulo: Oficinas Ebro Digital, texto: "Planta diáfana para 40 personas con salas acústicas de madera.", imagen: /fotos/proyecto-5.jpg, categoria: Oficinas, anio: "2023" }
+      - { titulo: Ático en Plaza San Felipe, texto: "Terraza habitable y luz cenital en un ático del casco histórico.", imagen: /fotos/proyecto-6.jpg, categoria: Interiorismo, anio: "2022" }
 
   sobre-nosotros:
     activa: true
@@ -61,7 +61,7 @@ secciones:
       Albar nace en 2012 en Zaragoza. Somos un estudio pequeño a propósito: cada proyecto lo llevan las mismas dos personas de principio a fin.
 
       Acompañamos la obra semana a semana y trabajamos con oficios locales de confianza.
-    imagen: /placeholders/sobre.svg
+    imagen: /fotos/sobre.jpg
     personas:
       - { nombre: Irene Albar, cargo: Arquitecta · Fundadora }
       - { nombre: Marcos Gil, cargo: Arquitecto }
