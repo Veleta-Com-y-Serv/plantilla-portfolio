@@ -1,0 +1,13 @@
+# Metadatos de la plantilla para el catálogo de NoExpertise.
+id: portfolio
+nombre: Portfolio / estudio
+descripcion: Web minimalista para estudios de diseño, arquitectura y fotografía, centrada en los proyectos.
+sectores: [diseno, arquitectura, foto]
+secciones: [hero, proyectos, sobre-nosotros, servicios, contacto]
+estilo: minimal
+plan_minimo: presencia
+version: 1.0.0
+base: astrowind
+demo_url: https://demo-plantilla-portfolio.noexpertise.com
+activa: true
+orden: 50

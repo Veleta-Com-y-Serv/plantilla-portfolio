@@ -1,0 +1,47 @@
+/* Portfolio / estudio — estilo minimal: grotesca ligera a gran tamaño, detalles en monoespaciada, filetes, cero adornos. */
+@import "tailwindcss";
+@import "./comun.css";
+@config "../../tailwind.config.mjs";
+
+:root {
+  --fuente-texto: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --fuente-titulos: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --fuente-mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  --radio: 0; --ritmo: 4rem; --ritmo-md: 8rem; --ancho: 90rem;
+}
+
+@layer base {
+  body { font-family: var(--fuente-texto); font-size: 1rem; line-height: 1.55; }
+  h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 300; letter-spacing: -0.04em; line-height: .98; }
+}
+
+@layer components {
+  .mono { font-family: var(--fuente-mono); font-size: .75rem; letter-spacing: .02em; text-transform: uppercase; }
+  .antetitulo { font-family: var(--fuente-mono); font-size: .75rem; text-transform: uppercase; display: flex; align-items: center; gap: .5rem; }
+  .antetitulo::before { content: ""; width: .55rem; height: .55rem; background: var(--c-acento); }
+  .titulo-seccion { font-size: clamp(2.2rem, 6.5vw, 4.75rem); margin-top: 1rem; }
+  .titular { max-width: 60rem; margin-bottom: 3.5rem; }
+  .titular--centro { margin-inline: auto; text-align: center; }
+  .titular-texto { margin-top: 1.25rem; max-width: 36rem; opacity: .7; }
+  .filete { border-top: 1px solid var(--c-texto); }
+
+  .btn { background: var(--c-texto); color: var(--c-fondo); font-weight: 500; border-radius: 0; }
+  .btn:hover { background: var(--c-primario); }
+  .btn-sec { border-bottom: 1px solid currentColor; padding-inline: 0; min-height: auto; font-weight: 500; }
+  .enlace { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .25s; text-decoration: none; }
+  .enlace:hover { background-size: 100% 1px; }
+
+  .cabecera--minimal .cabecera-fila { min-height: 4.5rem; }
+  .cabecera--minimal .marca-inicial { display: none; }
+  .cabecera--minimal .marca-nombre { font-weight: 500; letter-spacing: -0.01em; }
+  .cabecera--minimal .cabecera-nav a { font-family: var(--fuente-mono); font-size: .75rem; text-transform: uppercase; }
+  .cabecera--minimal .cabecera-nav a:hover { color: var(--c-acento); }
+  .cabecera--minimal .menu-movil summary { font-family: var(--fuente-mono); font-size: .75rem; text-transform: uppercase; font-weight: 400; }
+
+  .pie--minimal { border-top: 1px solid var(--c-texto); }
+  .pie--minimal .pie-nombre { font-weight: 400; font-size: 1.75rem; letter-spacing: -0.03em; }
+  .pie--minimal .pie-titulo { font-family: var(--fuente-mono); letter-spacing: 0; }
+
+  .formulario .campo input, .formulario .campo textarea { border: 0; border-bottom: 1px solid color-mix(in srgb, var(--c-texto) 40%, transparent); padding-inline: 0; }
+  .formulario .campo label { font-family: var(--fuente-mono); font-size: .7rem; text-transform: uppercase; font-weight: 400; }
+}

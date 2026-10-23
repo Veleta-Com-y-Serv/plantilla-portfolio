@@ -1,0 +1,25 @@
+---
+// Servicios como índice: filas con filete, título a la izquierda y descripción a la derecha.
+import { seccion } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Titular from '../ui/Titular.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+---
+
+{
+  s && (
+    <Seccion id={Astro.props.id}>
+      <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      <dl class="border-b border-texto">
+        {s.items.map((it, i) => (
+          <div class="filete grid gap-2 py-6 md:grid-cols-12 md:gap-6 md:py-8">
+            <span class="mono opacity-60 md:col-span-1">{String(i + 1).padStart(2, '0')}</span>
+            <dt class="text-2xl tracking-tight md:col-span-5 md:text-4xl md:font-light">{it.titulo}</dt>
+            <dd class="opacity-70 md:col-span-5 md:col-start-8">{it.texto}</dd>
+          </div>
+        ))}
+      </dl>
+    </Seccion>
+  )
+}

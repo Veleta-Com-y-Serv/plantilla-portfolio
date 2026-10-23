@@ -1,0 +1,37 @@
+---
+// Estudio: declaración grande, párrafos en columna estrecha y nombres del equipo como lista.
+import { seccion, parrafos } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Imagen from '../ui/Imagen.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const declaracion = (s?.declaracion as string) || '';
+---
+
+{
+  s && (
+    <Seccion id={Astro.props.id} class="bg-texto text-fondo">
+      {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
+      {s.titulo && <h2 class="titulo-seccion max-w-5xl">{s.titulo}</h2>}
+      <div class="mt-14 grid gap-10 md:grid-cols-12">
+        {s.imagen && <Imagen src={s.imagen} alt="" ancho={1000} alto={1200} class="aspect-[5/6] w-full object-cover grayscale md:col-span-4" />}
+        <div class="md:col-span-5 md:col-start-6">
+          {declaracion && <p class="text-2xl font-light leading-snug tracking-tight md:text-3xl">{declaracion}</p>}
+          <div class="mt-8 space-y-4 opacity-75">
+            {parrafos(s.texto).map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+        {s.personas.length > 0 && (
+          <ul class="md:col-span-3">
+            {s.personas.map((p) => (
+              <li class="border-t border-fondo/30 py-3">
+                <p>{p.nombre}</p>
+                {p.cargo && <p class="mono opacity-60">{p.cargo}</p>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </Seccion>
+  )
+}

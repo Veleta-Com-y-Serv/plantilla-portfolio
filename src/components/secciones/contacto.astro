@@ -1,0 +1,34 @@
+---
+// Contacto: el email enorme como protagonista, datos en monoespaciada y formulario de líneas.
+import { seccion, site, tel } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import FormularioContacto from '../ui/FormularioContacto.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const c = site.contacto;
+---
+
+{
+  s && (
+    <Seccion id={Astro.props.id}>
+      {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
+      {s.titulo && <h2 class="titulo-seccion">{s.titulo}</h2>}
+      {c.email && (
+        <a href={`mailto:${c.email}`} class="enlace mt-8 inline-block break-all text-[clamp(1.6rem,6vw,4.5rem)] font-light tracking-tight">
+          {c.email}
+        </a>
+      )}
+      <div class="mt-16 grid gap-12 md:grid-cols-12">
+        <dl class="grid content-start gap-6 md:col-span-4">
+          {c.telefono && <div><dt class="mono opacity-60">Teléfono</dt><dd class="mt-1"><a class="enlace" href={tel(c.telefono)}>{c.telefono}</a></dd></div>}
+          {c.direccion && <div><dt class="mono opacity-60">Estudio</dt><dd class="mt-1">{c.direccion}</dd></div>}
+          {c.horario && <div><dt class="mono opacity-60">Horario</dt><dd class="mt-1">{c.horario}</dd></div>}
+          {s.texto && <p class="opacity-70">{s.texto}</p>}
+        </dl>
+        <div class="md:col-span-6 md:col-start-7">
+          <FormularioContacto boton="Enviar" />
+        </div>
+      </div>
+    </Seccion>
+  )
+}

@@ -1,0 +1,84 @@
+# Contenido de la web. Es lo único que rellena la plataforma NoExpertise.
+# Las secciones se muestran en el orden de este fichero. Para ocultar una: activa: false.
+nombre: Estudio Albar
+eslogan: Arquitectura e interiorismo en Zaragoza.
+sector: arquitectura
+logo: ""          # ruta a una imagen en public/ (p. ej. /logo.svg). Vacío = nombre en texto.
+colores:
+  primario: "#111111"
+  acento: "#e4572e"
+  fondo: "#f5f4f0"
+  texto: "#111111"
+contacto:
+  telefono: "976 30 88 15"
+  email: estudio@albar-arquitectura.es
+  direccion: Calle San Miguel 8, 3.º, 50001 Zaragoza
+  horario: "Lunes a viernes, de 9:00 a 18:00. Visitas con cita."
+  whatsapp: ""
+redes:
+  instagram: https://www.instagram.com/
+  facebook: ""
+  linkedin: https://www.linkedin.com/
+menu:
+  - { texto: Proyectos, url: "/#proyectos" }
+  - { texto: Estudio, url: "/#sobre-nosotros" }
+  - { texto: Servicios, url: "/#servicios" }
+  - { texto: Contacto, url: "/#contacto" }
+boton_cabecera: { texto: "", url: "" }   # vacío = sin botón en la cabecera
+seo:
+  titulo: Estudio Albar · Arquitectura e interiorismo en Zaragoza
+  descripcion: "Estudio de arquitectura en Zaragoza. Viviendas unifamiliares, rehabilitación y diseño interior con un enfoque sobrio y duradero."
+  tipo: ProfessionalService
+marca_pie: true
+
+secciones:
+  hero:
+    activa: true
+    antetitulo: Arquitectura · Interiorismo
+    titulo: Espacios tranquilos para vivir mejor.
+    texto: "Proyectamos viviendas, locales y rehabilitaciones con luz natural, materiales honestos y presupuestos realistas."
+    imagen: /placeholders/hero.svg
+    cta: { texto: Ver proyectos, url: "/#proyectos" }
+
+  proyectos:
+    activa: true
+    antetitulo: Proyectos
+    titulo: Trabajo seleccionado
+    proyectos:
+      - { titulo: Casa en Valdespartera, texto: "Vivienda unifamiliar de 180 m² con patio central y fachada de ladrillo visto.", imagen: /placeholders/proyecto-1.svg, categoria: Vivienda, anio: "2025" }
+      - { titulo: Rehabilitación en el Tubo, texto: "Piso de 1920 recuperado: suelos hidráulicos, vigas de madera y cocina abierta.", imagen: /placeholders/proyecto-2.svg, categoria: Rehabilitación, anio: "2024" }
+      - { titulo: Librería Albada, texto: "Local de 90 m² con estanterías de abedul y lectura junto al escaparate.", imagen: /placeholders/proyecto-3.svg, categoria: Comercial, anio: "2024" }
+      - { titulo: Casa de pueblo en Uncastillo, texto: "Piedra, cal y una escalera nueva de acero que ordena tres plantas.", imagen: /placeholders/proyecto-4.svg, categoria: Rehabilitación, anio: "2023" }
+      - { titulo: Oficinas Ebro Digital, texto: "Planta diáfana para 40 personas con salas acústicas de madera.", imagen: /placeholders/proyecto-5.svg, categoria: Oficinas, anio: "2023" }
+      - { titulo: Ático en Plaza San Felipe, texto: "Terraza habitable y luz cenital en un ático del casco histórico.", imagen: /placeholders/proyecto-6.svg, categoria: Interiorismo, anio: "2022" }
+
+  sobre-nosotros:
+    activa: true
+    antetitulo: Estudio
+    titulo: Pocas cosas, bien hechas.
+    declaracion: "Creemos en la arquitectura que envejece bien: luz, proporción y materiales que mejoran con el uso."
+    texto: |
+      Albar nace en 2012 en Zaragoza. Somos un estudio pequeño a propósito: cada proyecto lo llevan las mismas dos personas de principio a fin.
+
+      Acompañamos la obra semana a semana y trabajamos con oficios locales de confianza.
+    imagen: /placeholders/sobre.svg
+    personas:
+      - { nombre: Irene Albar, cargo: Arquitecta · Fundadora }
+      - { nombre: Marcos Gil, cargo: Arquitecto }
+      - { nombre: Sara Lahoz, cargo: Interiorista }
+
+  servicios:
+    activa: true
+    antetitulo: Servicios
+    titulo: Qué hacemos
+    items:
+      - { titulo: Proyecto de vivienda, texto: "Desde el primer boceto hasta la licencia y la dirección de obra." }
+      - { titulo: Rehabilitación, texto: "Pisos, casas de pueblo y edificios con valor patrimonial." }
+      - { titulo: Interiorismo, texto: "Distribución, materiales, iluminación y mobiliario a medida." }
+      - { titulo: Locales comerciales, texto: "Tiendas, oficinas y restauración con plazos ajustados." }
+
+  contacto:
+    activa: true
+    antetitulo: Contacto
+    titulo: Cuéntanos tu proyecto
+    texto: "La primera reunión es sin compromiso. Trae fotos, planos o solo una idea."

@@ -1,0 +1,31 @@
+---
+// Hero minimal: titular gigante, línea de datos en monoespaciada e imagen a sangre.
+import { seccion, site } from '../../data/site';
+import Imagen from '../ui/Imagen.astro';
+interface Props { id: string; primera?: boolean }
+const { id, primera = false } = Astro.props;
+const s = seccion(id);
+---
+
+{
+  s && (
+    <section id={id}>
+      <div class="contenedor pt-14 pb-10 md:pt-24 md:pb-16">
+        <div class="mono flex flex-wrap justify-between gap-2 opacity-70">
+          <span>{s.antetitulo || site.sector}</span>
+          <span>{site.contacto.direccion.split(',').slice(-1)[0]?.trim()}</span>
+        </div>
+        <h1 class="mt-8 text-[clamp(2.8rem,11vw,9.5rem)]">{s.titulo}</h1>
+        <div class="mt-10 grid gap-6 md:grid-cols-12">
+          {s.texto && <p class="text-lg md:col-span-5 md:col-start-8 md:text-xl">{s.texto}</p>}
+          {s.cta && (
+            <p class="md:col-span-5 md:col-start-8">
+              <a class="btn-sec" href={s.cta.url}>{s.cta.texto} ↓</a>
+            </p>
+          )}
+        </div>
+      </div>
+      <Imagen src={s.imagen} alt="" ancho={1600} alto={1000} prioridad={primera} class="aspect-[4/3] w-full object-cover md:aspect-[21/9]" />
+    </section>
+  )
+}
