@@ -6,8 +6,60 @@ sectores: [diseno, arquitectura, foto]
 secciones: [hero, proyectos, sobre-nosotros, servicios, contacto]
 estilo: minimal
 plan_minimo: presencia
-version: 1.2.0
+version: 1.3.0
 base: astrowind
 demo_url: https://demo-plantilla-portfolio.noexpertise.com
 activa: true
 orden: 50
+
+# Asistente de puesta en marcha (NoExpertise): un paso por pantalla. Rutas del site sin índices;
+# tipos: texto y lista (la IA propone), datos, fotos, eleccion (colores y logo) y repaso.
+asistente:
+  - id: negocio
+    titulo: "Tu estudio"
+    pregunta: "¿Cómo se llama tu estudio y a qué os dedicáis?"
+    ayuda: "Qué hacéis, para quién y cómo trabajáis."
+    tipo: texto
+    campos: [nombre, eslogan, secciones.hero.antetitulo, secciones.hero.titulo, secciones.hero.texto, seo.descripcion]
+  - id: contacto
+    titulo: "Cómo te encuentran"
+    pregunta: "¿Dónde estáis y cómo os pueden llamar o escribir?"
+    ayuda: "Solo lo que quieras que vean tus clientes. Lo que dejes vacío no sale en tu web."
+    tipo: datos
+    campos: [contacto.telefono, contacto.whatsapp, contacto.email, contacto.direccion, contacto.horario, redes.instagram, redes.linkedin]
+  - id: proyectos
+    titulo: "Tus proyectos"
+    pregunta: "Cuéntame algunos trabajos que quieras enseñar: qué, para quién y el año. Uno por línea."
+    ayuda: "Las fotos las pones luego en Contenido."
+    tipo: lista
+    campos: [secciones.proyectos.proyectos]
+  - id: sobre-nosotros
+    titulo: "Quiénes sois"
+    pregunta: "Cuéntame vuestra historia y vuestra forma de trabajar."
+    tipo: texto
+    campos: [secciones.sobre-nosotros.titulo, secciones.sobre-nosotros.declaracion, secciones.sobre-nosotros.texto]
+  - id: equipo
+    titulo: "Tu equipo"
+    pregunta: "¿Quién forma el equipo? Nombre y qué hace cada uno, uno por línea."
+    ayuda: "Las fotos las pones luego en Contenido."
+    tipo: lista
+    campos: [secciones.sobre-nosotros.personas]
+  - id: servicios
+    titulo: "Servicios"
+    pregunta: "¿Qué servicios ofrecéis? Uno por línea."
+    tipo: texto
+    campos: [secciones.servicios.titulo, secciones.servicios.items]
+  - id: fotos
+    titulo: "Tus fotos"
+    pregunta: "Pon una foto de portada y, si quieres, alguna más."
+    ayuda: "Sube las tuyas o elige una del banco. Las que no cambies se quedan como están."
+    tipo: fotos
+    campos: [secciones.hero.imagen, secciones.sobre-nosotros.imagen]
+  - id: aspecto
+    titulo: "Colores y logo"
+    pregunta: "Elige los colores de tu web y, si tienes, tu logo."
+    tipo: eleccion
+    campos: [colores.primario, colores.acento, logo]
+  - id: repaso
+    titulo: "Repaso"
+    tipo: repaso
