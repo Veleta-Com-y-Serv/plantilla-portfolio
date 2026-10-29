@@ -1,0 +1,42 @@
+---
+// Preguntas frecuentes: acordeón nativo <details> con filetes, sin JavaScript, como la lista de servicios.
+// Campos: `preguntas[]` (pregunta, respuesta). Sin preguntas no se pinta.
+// También sirve de diseño para apartados nuevos (`tipo: preguntas`).
+import { seccion } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Titular from '../ui/Titular.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const preguntas = s ? s.preguntas.filter((p) => p && p.pregunta) : [];
+---
+
+{
+  s && preguntas.length > 0 && (
+    <Seccion id={Astro.props.id}>
+      <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      <div class="border-b border-texto">
+        {preguntas.map((p, i) => (
+          <details class="faq filete">
+            <summary class="grid grid-cols-[auto_1fr_auto] items-baseline gap-4 py-6 md:grid-cols-12 md:gap-6 md:py-8">
+              <span class="mono opacity-60 md:col-span-1">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-xl tracking-tight md:col-span-10 md:text-3xl md:font-light">{p.pregunta}</span>
+              <span class="faq-signo mono text-base md:col-span-1 md:justify-self-end" aria-hidden="true">+</span>
+            </summary>
+            {p.respuesta && (
+              <div class="pb-8 md:grid md:grid-cols-12 md:gap-6">
+                <p class="opacity-70 md:col-span-6 md:col-start-2">{p.respuesta}</p>
+              </div>
+            )}
+          </details>
+        ))}
+      </div>
+    </Seccion>
+  )
+}
+
+<style>
+  .faq summary { list-style: none; cursor: pointer; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq-signo { display: inline-block; transition: transform 0.2s ease; }
+  .faq[open] .faq-signo { transform: rotate(45deg); }
+</style>

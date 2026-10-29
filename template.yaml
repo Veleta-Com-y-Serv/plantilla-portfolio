@@ -3,10 +3,16 @@ id: portfolio
 nombre: Portfolio / estudio
 descripcion: Web minimalista para estudios de diseño, arquitectura y fotografía, centrada en los proyectos.
 sectores: [diseno, arquitectura, foto]
-secciones: [hero, proyectos, sobre-nosotros, servicios, contacto]
+secciones:
+  - { id: hero, nombre: Portada }
+  - { id: proyectos, nombre: Proyectos }
+  - { id: sobre-nosotros, nombre: Sobre nosotros }
+  - { id: servicios, nombre: Servicios }
+  - { id: preguntas, nombre: Preguntas frecuentes }
+  - { id: contacto, nombre: Contacto }
 estilo: minimal
 plan_minimo: presencia
-version: 1.3.0
+version: 1.4.0
 base: astrowind
 demo_url: https://demo-plantilla-portfolio.noexpertise.com
 activa: true
@@ -49,6 +55,12 @@ asistente:
     pregunta: "¿Qué servicios ofrecéis? Uno por línea."
     tipo: texto
     campos: [secciones.servicios.titulo, secciones.servicios.items]
+  - id: preguntas
+    titulo: "Preguntas frecuentes"
+    pregunta: "¿Qué os preguntan más a menudo? Escribe cada pregunta y lo que respondéis."
+    ayuda: "Si lo prefieres, añádelos luego en Contenido."
+    tipo: lista
+    campos: [secciones.preguntas.preguntas]
   - id: fotos
     titulo: "Tus fotos"
     pregunta: "Pon una foto de portada y, si quieres, alguna más."

@@ -1,6 +1,7 @@
 ---
 // Estudio: declaración grande, párrafos en columna estrecha y nombres del equipo como lista.
 import { seccion, parrafos } from '../../data/site';
+import { altSeccion } from '../../lib/seo';
 import Seccion from '../ui/Seccion.astro';
 import Imagen from '../ui/Imagen.astro';
 interface Props { id: string }
@@ -14,7 +15,7 @@ const declaracion = (s?.declaracion as string) || '';
       {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
       {s.titulo && <h2 class="titulo-seccion max-w-5xl">{s.titulo}</h2>}
       <div class="mt-14 grid gap-10 md:grid-cols-12">
-        {s.imagen && <Imagen src={s.imagen} alt="" ancho={1000} alto={1200} class="aspect-[5/6] w-full object-cover grayscale md:col-span-4" />}
+        {s.imagen && <Imagen src={s.imagen} alt={altSeccion(s)} ancho={1000} alto={1200} class="aspect-[5/6] w-full object-cover grayscale md:col-span-4" />}
         <div class="md:col-span-5 md:col-start-6">
           {declaracion && <p class="text-2xl font-light leading-snug tracking-tight md:text-3xl">{declaracion}</p>}
           <div class="mt-8 space-y-4 opacity-75">

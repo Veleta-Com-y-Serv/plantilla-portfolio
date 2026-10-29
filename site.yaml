@@ -78,6 +78,16 @@ secciones:
       - { titulo: Interiorismo, texto: "Distribución, materiales, iluminación y mobiliario a medida." }
       - { titulo: Locales comerciales, texto: "Tiendas, oficinas y restauración con plazos ajustados." }
 
+  preguntas:
+    activa: true
+    antetitulo: Preguntas
+    titulo: Antes de empezar
+    preguntas:
+      - { pregunta: "¿Cuánto cuesta un proyecto?", respuesta: "Depende del tamaño y del tipo de encargo. Tras la primera reunión te enviamos una propuesta de honorarios cerrada y por fases." }
+      - { pregunta: "¿Os encargáis de la licencia de obras?", respuesta: "Sí. Redactamos el proyecto, lo presentamos en el ayuntamiento y te avisamos de cada paso hasta tener la licencia." }
+      - { pregunta: "¿Hacéis también la dirección de obra?", respuesta: "Sí. Visitamos la obra cada semana, revisamos certificaciones y resolvemos los detalles con la constructora." }
+      - { pregunta: "¿Trabajáis fuera de Zaragoza?", respuesta: "Sí, en toda la provincia. Varias de nuestras rehabilitaciones son casas de pueblo." }
+
   contacto:
     activa: true
     antetitulo: Contacto
