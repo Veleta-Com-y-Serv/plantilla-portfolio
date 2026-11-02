@@ -46,11 +46,66 @@ secciones:
     antetitulo: Proyectos
     titulo: Trabajo seleccionado
     proyectos:
-      - { titulo: Casa en Valdespartera, texto: "Vivienda unifamiliar de 180 m² con patio central y fachada de ladrillo visto.", imagen: /fotos/proyecto-1.jpg, categoria: Vivienda, anio: "2025" }
-      - { titulo: Rehabilitación en el Tubo, texto: "Piso de 1920 recuperado: suelos hidráulicos, vigas de madera y cocina abierta.", imagen: /fotos/proyecto-2.jpg, categoria: Rehabilitación, anio: "2024" }
-      - { titulo: Librería Albada, texto: "Local de 90 m² con estanterías de abedul y lectura junto al escaparate.", imagen: /fotos/proyecto-3.jpg, categoria: Comercial, anio: "2024" }
-      - { titulo: Casa de pueblo en Uncastillo, texto: "Piedra, cal y una escalera nueva de acero que ordena tres plantas.", imagen: /fotos/proyecto-4.jpg, categoria: Rehabilitación, anio: "2023" }
-      - { titulo: Oficinas Ebro Digital, texto: "Planta diáfana para 40 personas con salas acústicas de madera.", imagen: /fotos/proyecto-5.jpg, categoria: Oficinas, anio: "2023" }
+      - titulo: Casa en Valdespartera
+        texto: "Vivienda unifamiliar de 180 m² con patio central y fachada de ladrillo visto."
+        imagen: /fotos/proyecto-1.jpg
+        imagenes: "/fotos/proyecto-2.jpg; /fotos/proyecto-3.jpg"
+        categoria: Vivienda
+        anio: "2025"
+        detalle: |
+          La familia buscaba una casa que se abriera al sol sin renunciar a la intimidad. La respuesta fue un patio central alrededor del cual se ordenan las estancias: la cocina y el comedor miran a él por el lado más soleado, y los dormitorios se reparten en el otro ala, más callado.
+
+          La fachada de ladrillo visto hacia la calle es sobria y casi ciega; toda la luz entra desde dentro. El ladrillo se eligió por su envejecimiento: con los años gana tono y no pide mantenimiento. En el interior se repite una paleta corta de madera clara, cal y suelo continuo.
+
+          Llevamos el proyecto desde el primer boceto hasta la dirección de obra. Cada semana revisamos la ejecución con la constructora y decidimos en obra los detalles de carpintería y encuentros, de modo que lo dibujado y lo construido coinciden. El resultado es una casa luminosa, fácil de calentar en invierno y fresca en verano, pensada para durar.
+      - titulo: Rehabilitación en el Tubo
+        texto: "Piso de 1920 recuperado: suelos hidráulicos, vigas de madera y cocina abierta."
+        imagen: /fotos/proyecto-2.jpg
+        imagenes: "/fotos/proyecto-4.jpg; /fotos/proyecto-6.jpg"
+        categoria: Rehabilitación
+        anio: "2024"
+        detalle: |
+          Un piso antiguo del casco histórico, con buena estructura pero muy compartimentado. El encargo era vivir en él sin perder lo mejor de su época: los suelos hidráulicos, las vigas de madera y los techos altos.
+
+          Empezamos por tirar tabiques que no aportaban nada y abrir la cocina al salón, de modo que la luz de la calle llegue hasta el fondo. Los suelos originales se limpiaron y se repusieron las piezas dañadas con otras de la misma época. Las vigas se trataron y se dejaron a la vista, y las instalaciones se renovaron por completo, ocultas pero accesibles.
+
+          En una rehabilitación aparecen sorpresas, y por eso acompañamos la obra semana a semana: cada hallazgo se resuelve con el gremio en el momento y se explica al propietario antes de decidir. El piso conserva su carácter y tiene ahora la comodidad de una vivienda actual.
+      - titulo: Librería Albada
+        texto: "Local de 90 m² con estanterías de abedul y lectura junto al escaparate."
+        imagen: /fotos/proyecto-3.jpg
+        imagenes: "/fotos/proyecto-1.jpg; /fotos/proyecto-5.jpg"
+        categoria: Comercial
+        anio: "2024"
+        detalle: |
+          Una librería de barrio que quería ser, además de tienda, un sitio donde quedarse a leer. El local es largo y estrecho, así que el reto fue que el recorrido invitara a entrar hasta el fondo.
+
+          Diseñamos estanterías de abedul a medida, con baldas a distintas alturas para que los libros se vean de frente y de canto. Junto al escaparate dejamos un rincón de lectura con un banco corrido y luz natural, que además sirve de reclamo desde la calle. La iluminación combina focos orientables sobre las mesas de novedades y una luz cálida y baja en las zonas de estar.
+
+          Trabajamos con plazos muy ajustados porque la librería no podía estar cerrada mucho tiempo. Coordinamos carpintero, electricista y pintores para que la obra avanzara sin esperas. El resultado es un espacio cálido, ordenado y fácil de mantener por quienes lo atienden cada día.
+      - titulo: Casa de pueblo en Uncastillo
+        texto: "Piedra, cal y una escalera nueva de acero que ordena tres plantas."
+        imagen: /fotos/proyecto-4.jpg
+        imagenes: "/fotos/proyecto-2.jpg; /fotos/proyecto-6.jpg"
+        categoria: Rehabilitación
+        anio: "2023"
+        detalle: |
+          Una casa de pueblo de muros gruesos de piedra, abandonada durante años, que la nueva propietaria quería recuperar como segunda vivienda. Lo primero fue entender el edificio: cómo respiraba, dónde entraba la humedad y qué muros eran los que sostenían todo.
+
+          La intervención es mínima y legible. Se consolidó la piedra, se revocó con cal y se mantuvieron los huecos originales. La única pieza nueva y declarada es una escalera de acero que ordena las tres plantas y deja pasar la luz de la cubierta hasta la planta baja, donde antes todo era oscuro.
+
+          Trabajamos con oficios del pueblo y de la comarca, que conocen la piedra y la cal mejor que nadie. Visitamos la obra con frecuencia porque cada muro abierto cambiaba algo del plan. Hoy la casa es cálida en invierno, fresca en verano y reconocible desde la calle como lo que siempre fue.
+      - titulo: Oficinas Ebro Digital
+        texto: "Planta diáfana para 40 personas con salas acústicas de madera."
+        imagen: /fotos/proyecto-5.jpg
+        imagenes: "/fotos/proyecto-3.jpg; /fotos/proyecto-1.jpg"
+        categoria: Oficinas
+        anio: "2023"
+        detalle: |
+          Una empresa tecnológica necesitaba una oficina que cambiara con el equipo. Partimos de una planta diáfana, con mucha luz y pocos pilares, y evitamos llenarla de tabiques: el espacio de trabajo es común y flexible, y el ruido se resuelve con piezas concretas.
+
+          Esas piezas son las salas acústicas de madera, pequeños volúmenes con cierre vidriado donde se hacen llamadas y reuniones sin molestar al resto. La madera, además de aislar, da calidez y rompe la frialdad habitual de una oficina. El suelo es continuo y los puestos se agrupan por equipos, con mobiliario sencillo que se puede recolocar.
+
+          Coordinamos la obra con plazos cerrados, porque la empresa se mudaba en una fecha fija y no había margen. Las instalaciones quedan accesibles para futuros cambios. El resultado es un lugar tranquilo, luminoso y fácil de ampliar sin obras.
       - { titulo: Ático en Plaza San Felipe, texto: "Terraza habitable y luz cenital en un ático del casco histórico.", imagen: /fotos/proyecto-6.jpg, categoria: Interiorismo, anio: "2022" }
 
   sobre-nosotros:

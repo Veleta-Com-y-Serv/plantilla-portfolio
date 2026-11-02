@@ -1,9 +1,12 @@
 ---
 // Proyectos: rejilla asimétrica (una grande, dos pequeñas…) con pie de foto en monoespaciada.
+// Los proyectos con `detalle` tienen página propia (/proyectos/<slug>/): el título es el enlace y «Ver» sale en el pie.
 import { seccion } from '../../data/site';
 import Seccion from '../ui/Seccion.astro';
 import Titular from '../ui/Titular.astro';
 import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+import { enlaceDe } from '../../lib/paginas';
 interface Props { id: string }
 const s = seccion(Astro.props.id);
 ---
@@ -15,17 +18,19 @@ const s = seccion(Astro.props.id);
       <ul class="grid gap-x-6 gap-y-14 md:grid-cols-12">
         {s.proyectos.map((p, i) => {
           const ancho = i % 3 === 0 ? 'md:col-span-12' : i % 3 === 1 ? 'md:col-span-7' : 'md:col-span-5 md:mt-24';
+          const url = enlaceDe(p);
           return (
-            <li class={ancho}>
+            <li class={ancho + ' relative'}>
               <Imagen src={p.imagen} alt={p.titulo} ancho={1200} alto={900} class={'w-full object-cover ' + (i % 3 === 0 ? 'aspect-[4/3] md:aspect-[21/9]' : 'aspect-[4/3]')} />
               <div class="filete mt-4 grid grid-cols-[3rem_1fr] gap-x-4 pt-3 md:grid-cols-[4rem_1fr_auto]">
                 <span class="mono">{String(i + 1).padStart(2, '0')}</span>
                 <div>
-                  <h3 class="text-2xl font-normal tracking-tight md:text-3xl">{p.titulo}</h3>
+                  <h3 class="text-2xl font-normal tracking-tight md:text-3xl">{url ? <a href={url} class="proy-enlace">{p.titulo}</a> : p.titulo}</h3>
                   {p.texto && <p class="mt-2 max-w-xl text-sm opacity-70">{p.texto}</p>}
                 </div>
                 <span class="mono col-start-2 mt-2 opacity-60 md:col-start-auto md:mt-0">
                   {[p.categoria, p.anio].filter(Boolean).join(' · ')}
+                  {url && <span class="proy-ver" aria-hidden="true">Ver <Icono nombre="flecha" tam={14} /></span>}
                 </span>
               </div>
             </li>
@@ -35,3 +40,11 @@ const s = seccion(Astro.props.id);
     </Seccion>
   )
 }
+
+<style>
+  .proy-enlace { text-decoration: none; color: inherit; }
+  .proy-enlace::after { content: ""; position: absolute; inset: 0; }
+  .proy-enlace:focus-visible { outline: none; }
+  li:has(.proy-enlace:focus-visible) { outline: 2px solid var(--c-acento); outline-offset: 4px; }
+  .proy-ver { display: flex; align-items: center; gap: .3rem; margin-top: .25rem; color: var(--c-acento); }
+</style>

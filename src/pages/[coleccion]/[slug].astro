@@ -1,0 +1,155 @@
+---
+// Ficha de un elemento con `detalle` (src/lib/paginas.ts, listas de src/data/fichas.ts): /proyectos/<slug>/.
+// Diseño minimal de la plantilla: migas y datos en monoespaciada, título ligero a gran tamaño, filetes negros,
+// foto a sangre con proporción panorámica, texto en una columna estrecha con la tabla de datos al lado, galería sin
+// esquinas y otros proyectos en rejilla con pie de foto. Sin fondos de color ni sombras.
+import Base from '../../layouts/Base.astro';
+import Imagen from '../../components/ui/Imagen.astro';
+import Icono from '../../components/ui/Icono.astro';
+import { seccion, site, tel, whatsapp } from '../../data/site';
+import { fichas, relacionadas, resumen } from '../../lib/paginas';
+import type { Ficha } from '../../lib/paginas';
+import { altGaleria, jsonLdFicha, jsonLdMigas, urlBase } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return fichas().map((f) => ({ params: { coleccion: f.def.ruta, slug: f.slug }, props: { f } }));
+}
+
+interface Props { f: Ficha }
+const { f } = Astro.props;
+const base = urlBase(Astro.site);
+const nombreSeccion = String(f.seccion.antetitulo || f.seccion.titulo || f.def.nombre).trim();
+const migas = [
+  { nombre: 'Inicio', ruta: '/' },
+  { nombre: nombreSeccion, ruta: `/#${f.idSeccion}` },
+  { nombre: f.titulo, ruta: f.url },
+];
+const c = site.contacto;
+const contacto = seccion('contacto') ? '/#contacto' : site.boton_cabecera?.url || '/#contacto';
+const wa = whatsapp(c.whatsapp, `Hola, quiero información sobre ${f.titulo}`);
+const datos = f.datos.filter((d) => d.clave !== 'precio');
+const otras = relacionadas(f, 3);
+const descripcion = resumen(f.texto || f.detalle[0] || '');
+---
+
+<Base titulo={f.titulo} descripcion={descripcion} imagen={f.imagen} ld={[jsonLdMigas(base, migas), jsonLdFicha(base, f)]}>
+  <section class="seccion ficha-cabeza">
+    <div class="contenedor">
+      <nav aria-label="Migas de pan" class="migas mono">
+        <ol>
+          {migas.map((m, i) => (
+            <li>{i < migas.length - 1 ? <a href={m.ruta} class="enlace">{m.nombre}</a> : <span aria-current="page">{m.nombre}</span>}</li>
+          ))}
+        </ol>
+      </nav>
+      <p class="antetitulo mt-10">{f.categoria || f.def.nombre}</p>
+      <h1 class="titulo-seccion ficha-titulo">{f.titulo}</h1>
+      {f.texto && <p class="titular-texto">{f.texto}</p>}
+      {f.imagen && (
+        <div class="ficha-foto">
+          <Imagen src={f.imagen} alt={f.titulo} ancho={1600} alto={900} prioridad class="h-full w-full object-cover" />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor ficha-cuerpo">
+      <article class="ficha-detalle">
+        {f.detalle.map((p) => <p>{p}</p>)}
+      </article>
+      <aside class="ficha-lado">
+        {(datos.length > 0 || f.precio) && (
+          <dl class="ficha-datos">
+            {f.precio && <div><dt class="mono">Precio</dt><dd>{f.precio}</dd></div>}
+            {datos.map((d) => <div><dt class="mono">{d.etiqueta}</dt><dd>{d.valor}</dd></div>)}
+          </dl>
+        )}
+        <div class="ficha-contacto filete">
+          <p class="ficha-contacto-titulo">¿Tienes algo parecido en mente?</p>
+          <p class="opacity-70">Cuéntanoslo en una primera reunión, sin compromiso.</p>
+          <div class="ficha-botones">
+            <a class="btn" href={contacto}>Hablemos <Icono nombre="flecha" tam={16} /></a>
+            {wa && <a class="btn-sec" href={wa} target="_blank" rel="noopener">WhatsApp</a>}
+            {c.telefono && <a class="btn-sec" href={tel(c.telefono)}>{c.telefono}</a>}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {f.imagenes.length > 0 && (
+    <section class="seccion" aria-label={`Fotos de ${f.titulo}`}>
+      <div class="contenedor">
+        <ul class="ficha-galeria">
+          {f.imagenes.map((src, i) => (
+            <li><Imagen src={src} alt={`${f.titulo}: ${altGaleria(i).toLowerCase()}`} ancho={800} alto={600} class="h-full w-full object-cover" /></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {otras.length > 0 && (
+    <section class="seccion ficha-otras-banda">
+      <div class="contenedor">
+        <p class="antetitulo">{nombreSeccion}</p>
+        <h2 class="titulo-seccion ficha-otras-titulo">Otros proyectos</h2>
+        <ul class="ficha-otras">
+          {otras.map((o, i) => (
+            <li class="ficha-otra">
+              {o.imagen && <Imagen src={o.imagen} alt="" ancho={800} alto={600} class="aspect-[4/3] w-full object-cover" />}
+              <div class="filete ficha-otra-pie">
+                <span class="mono">{String(i + 1).padStart(2, '0')}</span>
+                <h3><a href={o.url} class="ficha-otra-enlace">{o.titulo}</a></h3>
+                <span class="mono ficha-otra-ver" aria-hidden="true">Ver <Icono nombre="flecha" tam={14} /></span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-12"><a class="btn-sec" href={`/#${f.idSeccion}`}>Ver todos los proyectos</a></p>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .ficha-cabeza { padding-block: 1.5rem 3rem; }
+  .migas ol { display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
+  .migas li { display: inline-flex; align-items: center; gap: .75rem; min-width: 0; }
+  .migas li + li::before { content: "/"; opacity: .4; }
+  .migas a { min-height: 2.75rem; display: inline-flex; align-items: center; }
+  .migas [aria-current] { opacity: .6; overflow-wrap: anywhere; }
+  .ficha-titulo { overflow-wrap: anywhere; max-width: 60rem; }
+  .ficha-foto { aspect-ratio: 4 / 3; margin-top: 3rem; overflow: hidden; background: color-mix(in srgb, var(--c-texto) 8%, transparent); }
+  .ficha-cuerpo { display: grid; gap: 3rem; padding-block: 1rem 4rem; }
+  .ficha-detalle { max-width: 40rem; font-size: 1.1rem; line-height: 1.7; }
+  .ficha-detalle p + p { margin-top: 1.25rem; }
+  .ficha-detalle p:first-child { font-size: 1.35rem; line-height: 1.5; font-weight: 300; }
+  .ficha-lado { display: grid; gap: 2.5rem; align-content: start; }
+  .ficha-datos { border-top: 1px solid var(--c-texto); }
+  .ficha-datos > div { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid color-mix(in srgb, var(--c-texto) 25%, transparent); }
+  .ficha-datos dt { opacity: .6; padding-top: .2rem; }
+  .ficha-datos dd { min-width: 0; overflow-wrap: anywhere; }
+  .ficha-contacto { padding-top: 1.25rem; display: grid; gap: .75rem; }
+  .ficha-contacto-titulo { font-size: 1.5rem; font-weight: 300; letter-spacing: -0.03em; line-height: 1.1; }
+  .ficha-botones { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: .75rem; }
+  .ficha-galeria { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); }
+  .ficha-galeria li { aspect-ratio: 4 / 3; overflow: hidden; }
+  .ficha-otras-banda { border-top: 1px solid var(--c-texto); }
+  .ficha-otras-titulo { margin-bottom: 3rem; font-size: clamp(2rem, 5vw, 3.5rem); }
+  .ficha-otras { display: grid; gap: 3rem 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
+  .ficha-otra { position: relative; }
+  .ficha-otra-pie { margin-top: 1rem; padding-top: .75rem; display: grid; grid-template-columns: 2.5rem 1fr auto; gap: .25rem 1rem; align-items: start; }
+  .ficha-otra h3 { font-size: 1.5rem; }
+  .ficha-otra-enlace { text-decoration: none; color: inherit; overflow-wrap: anywhere; }
+  .ficha-otra-enlace::after { content: ""; position: absolute; inset: 0; }
+  .ficha-otra-enlace:focus-visible { outline: none; }
+  .ficha-otra:has(.ficha-otra-enlace:focus-visible) { outline: 2px solid var(--c-acento); outline-offset: 4px; }
+  .ficha-otra-ver { display: inline-flex; align-items: center; gap: .3rem; color: var(--c-acento); }
+  @media (min-width: 768px) { .ficha-foto { aspect-ratio: 21 / 9; } }
+  @media (min-width: 1024px) {
+    .ficha-cuerpo { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 6rem; align-items: start; }
+    .ficha-lado { position: sticky; top: 6.5rem; }
+  }
+</style>
